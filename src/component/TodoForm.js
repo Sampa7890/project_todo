@@ -17,7 +17,7 @@ const TodoForm = ({addTodo}) => {
                 <input type='text' className='todoText' placeholder='Type Your Task' value={value} onChange={(e) => {
                     setValue(e.target.value)
                 }}></input>
-                <button type='submit' className='todoSubmit'>Add <FontAwesomeIcon icon={faSquarePlus} /></button>
+                <button type='submit' className='todoSubmit'>Add <FontAwesomeIcon icon={faSquarePlus} style={{ color: 'green' }}/></button>
             </form>
         </div>
     )
