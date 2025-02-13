@@ -21,8 +21,8 @@ const TodoFormEditor = ({editTodo, task}) => {
       };
   return (
     <form onSubmit={handleSubmit} className="TodoForm">
-    <input type="text" value={value} onChange={(e) => setValue(e.target.value)} className="todo-input" placeholder='Update task' />
-    <button type="submit" className='todo-btn'>Update<FontAwesomeIcon icon={faSquarePen} style={{color:'blueviolet'}} /></button>
+    <input type="text" value={value} onChange={(e) => setValue(e.target.value)} className="todo-input text-bg-dark p-2" placeholder='Update task' />
+    <button type="submit" className='todo-btn btn btn-dark'>Update<FontAwesomeIcon icon={faSquarePen} style={{color:'blueviolet'}} /></button>
   </form>
   )
 }

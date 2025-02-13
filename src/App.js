@@ -1,5 +1,4 @@
 import './App.css';
-import TodoForm from './component/TodoForm';
 import TodoWrapper from './component/TodoWrapper';
 
 

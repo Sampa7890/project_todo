@@ -2,8 +2,9 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
-const Todo = ({ task, toggleComplete,deleteTodo,editTodo }) => {
+const Todo = ({ task, toggleComplete,deleteTodo,editTodo,index }) => {
     // Handle checkbox change with alert
+    
     const handleCheckboxChange = () => {
         // Trigger the toggle function
         toggleComplete(task.id);
@@ -15,10 +16,15 @@ const Todo = ({ task, toggleComplete,deleteTodo,editTodo }) => {
     };
 
     return (
-        <div className='todo' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', margin: '10px 0' }}>
+        <div className='todo form-control' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', margin: '10px 0' }}>
+            <div style={{ marginRight: '15px', fontWeight: 'bold' }}>
+                {index + 1}.
+            </div>
             {/* Checkbox with dynamic color */}
             <div style={{ marginRight: '10px', padding: '2px' }}> 
                 <input
+                    className='form-check-input'
+                    id="flexCheckIndeterminate"
                     type="checkbox"
                     checked={task.completed}
                     onChange={handleCheckboxChange}
@@ -37,7 +43,8 @@ const Todo = ({ task, toggleComplete,deleteTodo,editTodo }) => {
             </div>   
 
             {/* Action icons */}
-            <div className='todoIcon' style={{ display: 'flex', gap: '10px', cursor: 'pointer' }}>         
+            <div className='todoIcon' style={{ display: 'flex', gap: '10px', cursor: 'pointer' }}>
+
             {!task.completed && (
                 <FontAwesomeIcon icon={faPenToSquare} style={{ color: 'blue' }} title="🖊️ Edit your description" onClick={()=>editTodo(task.id)}/>
             )}

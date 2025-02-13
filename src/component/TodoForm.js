@@ -14,10 +14,10 @@ const TodoForm = ({addTodo}) => {
     return (
         <div className='todoForm'>
             <form className='todoForm' onSubmit={handleSubmit}>
-                <input type='text' className='todoText' placeholder='Type Your Task' value={value} onChange={(e) => {
+                <input className='text-bg-dark p-2' type='text'  placeholder='Type Your Task' value={value}  onChange={(e) => {
                     setValue(e.target.value)
                 }}></input>
-                <button type='submit' className='todoSubmit'>Add <FontAwesomeIcon icon={faSquarePlus} style={{ color: 'green' }}/></button>
+                <button type='submit' className='todoSubmit btn btn-dark'>Add <FontAwesomeIcon icon={faSquarePlus} style={{ color: 'green' }}/></button>
             </form>
         </div>
     )

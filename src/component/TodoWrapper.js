@@ -29,15 +29,15 @@ const TodoWrapper = () => {
     }
     return (
 
-        <div className='todoWrapper'>
-            <h1>List Your Task For Today!</h1>
+        <div className='todoWrapper container'>
+            <h1 className='display-4 '>List Your Task For Today!</h1>
             <TodoForm addTodo={addTodo} />
 
-            {todos.map((todo) => (
+            {todos.map((todo,index) => (
                 todo.isEditing?(
                     <TodoFormEditor editTodo={editTask} task={todo}/>
                 ):(
-                <Todo task={todo} toggleComplete={toggleComplete} key={todo.id} deleteTodo={deleteTodo} editTodo={editTodo} />
+                <Todo task={todo} toggleComplete={toggleComplete} key={todo.id} deleteTodo={deleteTodo} editTodo={editTodo} index={index}/>
                 )
             ))}
 
