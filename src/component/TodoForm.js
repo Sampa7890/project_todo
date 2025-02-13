@@ -1,12 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSquarePlus } from '@fortawesome/free-solid-svg-icons'
 
-const TodoForm = () => {
+const TodoForm = ({addTodo}) => {
+    const [value, setValue] = useState("");
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (value){
+            addTodo(value);
+            setValue("")
+        }
+    }
     return (
-        <div>
-            <h1>Hello I am ToDo Form</h1>
-            <form className='todoForm'>
-                <input type='text' className='todoText' placeholder='Type Your Task'></input>
-                <button type='submit' className='todoSubmit'>Add Task</button>
+        <div className='todoForm'>
+            <form className='todoForm' onSubmit={handleSubmit}>
+                <input type='text' className='todoText' placeholder='Type Your Task' value={value} onChange={(e) => {
+                    setValue(e.target.value)
+                }}></input>
+                <button type='submit' className='todoSubmit'>Add <FontAwesomeIcon icon={faSquarePlus} /></button>
             </form>
         </div>
     )
